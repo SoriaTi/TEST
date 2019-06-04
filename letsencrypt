@@ -1,0 +1,69 @@
+*********************************************************************************************************
+Apache:
+1)yum install httpd
+2)systemctl enable httpd
+3)systemctl start httpd  /  systemctl stop httpd  /  systemctl restart httpd /  systemctl reload httpd  
+4)systemctl status httpd
+5)vi /etc/httpd/conf/httpd.conf
+  Options Indexes FollowSymLinks ---> Options None
+  
+*********************************************************************************************************
+webconfig:
+#chown -R apache:apache /var/www/html
+#find /var/www/html/ -type d -exec chmod 770 {} \;
+
+*********************************************************************************************************
+PHP
+1)yum install php
+2)vi /etc/php.ini
+  short_open_tag = Off ---> short_open_tag = On
+
+*********************************************************************************************************
+Firewall:
+1)firewall-cmd --permanent --zone=public --add-service=http
+2)firewall-cmd --permanent --zone=public --add-service=https
+3)firewall-cmd --reload
+
+*********************************************************************************************************
+Remove Firewall:
+1)firewall-cmd -h
+2)rpm -qa *firewall*
+3)yum remove firewalld
+4)iptables -L -n
+
+
+*********************************************************************************************************
+Iptables:
+1)yum install iptables-services
+2)systemctl enable iptables
+3)systemctl start iptables
+4)/sbin/iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+5)/sbin/iptables -I INPUT -p tcp --dport 443 -j ACCEPT
+6)service iptables save
+7)iptables -n -L
+
+*********************************************************************************************************
+Letsencrypt:
+1)mkdir /etc/httpd/sites-available
+2)mkdir /etc/httpd/sites-enabled
+3)vi /etc/httpd/conf/httpd.conf
+  add--->IncludeOptional sites-enabled/*.conf
+4)vi /etc/httpd/sites-available/example.com.conf
+  add--->
+  <VirtualHost *:80>
+    ServerName example.com
+    ServerAlias www.example.com
+    DocumentRoot /var/www/html
+    ErrorLog /var/log/httpd/error.log
+    CustomLog /var/log/httpd/access_log combined
+  </VirtualHost>
+5)ln -s /etc/httpd/sites-available/example.com.conf /etc/httpd/sites-enabled/example.com.conf
+6)service httpd restart
+7)yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+[subscription-manager repos --enable "rhel-*-optional-rpms" --enable "rhel-*-extras-rpms"  --enable "rhel-ha-for-rhel-*-server-rpms"]
+8)yum -y install yum-utils
+9)yum-config-manager --enable rhui-REGION-rhel-server-extras rhui-REGION-rhel-server-optional
+10)yum install certbot python2-certbot-apache
+11)certbot --apache
+   --->example.com--->1
+  
