@@ -3,3 +3,12 @@ Domain：https://xiaix.me/zi-yu-ming-fa-xian-gong-ju/
 MOFBackdoor:http://www.moonsec.com/post-621.html
 MS/Win-signed binaries:https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules
 WSH-signature:https://posts.specterops.io/assessing-the-effectiveness-of-hash-based-application-whitelisting-blacklist-rules-fe1cb01975a9
+
+
+
+
+Tor:
+tor-win64-0.4.1.5.zip:https://dist.torproject.org/torbrowser/8.5/
+https://archive.torproject.org/tor-package-archive/vidalia-bundles/
+https://archive.torproject.org/tor-package-archive/vidalia-bundles/vidalia-bridge-bundle-0.2.4.22-0.2.21.exe
+https://dist.torproject.org/torbrowser/8.5/
