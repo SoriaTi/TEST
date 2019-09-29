@@ -26,3 +26,7 @@ How I got Domain Admin today. Relay creds>SAM dump>PTH> read cleartxt
 
 
 Red Tip #344: Set HKLM\System\CurrentControlSet\Control\TerminalServer /v fSingleSessionPerUser /d 0, to allow multiple sessions on a server per user. This is useful if you want to login to the jump-host, but that guy's just on all-day-long...
+
+
+
+Get-ComputerInfo
